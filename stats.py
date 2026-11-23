@@ -1,0 +1,236 @@
+import pygame as pg
+pg.display.init()
+pg.display.set_mode()
+
+customsize={
+    "9":[550,150],
+    "11":[550,150]
+}
+
+def makeSprites(path):
+    l=[]
+    sh=pg.image.load(f"./ASSETS/UNITS/{path}").convert_alpha()
+    for x in range(0,sh.get_size()[0],150 if path[:-4] not in customsize else customsize[path[:-4]][0]):
+        l.append(sh.subsurface(pg.Rect(x,0,150,150) if path[:-4] not in customsize else pg.Rect(x,0,*customsize[path[:-4]])))
+    return [l,pg.image.load(f"./ASSETS/UNITS/portrait{path}")]
+
+index=14
+img=[]
+
+i=0
+while i<=index:
+    try:
+        img.append(makeSprites(f"{i}.png"))
+    except Exception as e:
+        print(f"ERROR NO {i}.png, e:{e}")
+        img.append(None)
+    i+=1
+
+stats=[
+    {
+    "name":"Batter",
+    "cost":50,
+    "cd":60,
+    "sprite":img[0][0],
+    "range":50,
+    "mspeed":2,
+    "aspeed":60,
+    "dmg":10,
+    "hp":100,
+    "kb":1,
+    "p":{}
+},
+        {
+    "name":"Shielder",
+    "cost":100,
+    "cd":90,
+    "sprite":img[1][0],
+    "range":1,
+    "mspeed":1,
+    "aspeed":120,
+    "dmg":5,
+    "hp":300,
+    "kb":1,
+    "p":{
+        "pierce":-1
+    }
+},
+{
+    "name":"Knight",
+    "cost":200,
+    "cd":120,
+    "sprite":img[2][0],
+    "range":70,
+    "mspeed":2,
+    "aspeed":120,
+    "dmg":80,
+    "hp":200,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Gunner",
+    "cost":400,
+    "cd":400,
+    "sprite":img[3][0],
+    "range":200,
+    "mspeed":1,
+    "aspeed":120,
+    "dmg":20,
+    "hp":200,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Rusher",
+    "cost":500,
+    "cd":60,
+    "sprite":img[4][0],
+    "range":1,
+    "mspeed":4,
+    "aspeed":7,
+    "dmg":10,
+    "hp":300,
+    "kb":1,
+    "p":{
+        "fps":10
+    }
+    },
+{
+    "name":"Bomber",
+    "cost":400,
+    "cd":90,
+    "sprite":img[5][0],
+    "range":50,
+    "mspeed":3,
+    "aspeed":120,
+    "dmg":50,
+    "hp":300,
+    "kb":1,
+    "p":{
+        "pierce":-1
+    }
+    },
+{
+    "name":"Striker",
+    "cost":700,
+    "cd":300,
+    "sprite":img[6][0],
+    "range":50,
+    "mspeed":1,
+    "aspeed":100,
+    "dmg":100,
+    "hp":500,
+    "kb":1,
+    "p":{}
+    },
+{
+    "name":"Flame Mage",
+    "cost":800,
+    "cd":300,
+    "sprite":img[7][0],
+    "range":500,
+    "mspeed":1,
+    "aspeed":180,
+    "dmg":50,
+    "hp":300,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Titan",
+    "cost":1200,
+    "cd":400,
+    "sprite":img[8][0],
+    "range":1,
+    "mspeed":1,
+    "aspeed":300,
+    "dmg":300,
+    "hp":2000,
+    "kb":1,
+    "p":{
+        "pierce":-1
+    }
+    },
+{
+    "name":"Doomer",
+    "cost":1200,
+    "cd":800,
+    "sprite":img[9][0],
+    "range":400,
+    "mspeed":1,
+    "aspeed":600,
+    "dmg":300,
+    "hp":100,
+    "kb":1,
+    "p":{"pierce":-1, "x":-400,
+         "animchargeclamp":[3,5],
+         "animattackclamp":[6,6]
+         }
+},
+{
+    "name":"Butcher",
+    "cost":200,
+    "cd":120,
+    "sprite":img[10][0],
+    "range":70,
+    "mspeed":2,
+    "aspeed":30,
+    "dmg":20,
+    "hp":200,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Laser",
+    "cost":600,
+    "cd":400,
+    "sprite":img[11][0],
+    "range":400,
+    "mspeed":1,
+    "aspeed":240,
+    "dmg":30,
+    "hp":200,
+    "kb":1,
+    "p":{"pierce":-1, "x":-400}
+},
+{
+    "name":"Boxer",
+    "cost":300,
+    "cd":300,
+    "sprite":img[12][0],
+    "range":50,
+    "mspeed":1,
+    "aspeed":400,
+    "dmg":300,
+    "hp":300,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Sniper",
+    "cost":500,
+    "cd":400,
+    "sprite":img[13][0],
+    "range":400,
+    "mspeed":1,
+    "aspeed":400,
+    "dmg":100,
+    "hp":100,
+    "kb":1,
+    "p":{}
+},
+{
+    "name":"Brick",
+    "cost":300,
+    "cd":120,
+    "sprite":img[14][0],
+    "range":1,
+    "mspeed":1,
+    "aspeed":120,
+    "dmg":5,
+    "hp":1000,
+    "kb":1,
+    "p":{}
+}
+]
