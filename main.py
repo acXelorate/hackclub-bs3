@@ -1,6 +1,11 @@
 import os
 import sys
 
+if getattr(sys, "frozen", False):
+    EXE_DIR = os.path.dirname(sys.executable)
+else:
+    EXE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 if hasattr(sys, "_MEIPASS"):
     os.chdir(sys._MEIPASS)
 
@@ -9,7 +14,7 @@ from functions import *
 from classes import *
 from campaign import *
 
-
+SAVE_PATH = os.path.join(EXE_DIR, "save.json")
 
 v=1.0
 defaultData["version"]=v
@@ -18,7 +23,7 @@ playSong(sSong1,-1,0.2)
 
 def loadData():
     global stages,completed,goodlist,equip,research,efficiency,fLoadout,fShop,xp
-    data=Json.load("save.json")
+    data=Json.load(SAVE_PATH)
     if data["version"]<v:
         data=defaultData|data
     stages=data["stages"]
@@ -44,10 +49,10 @@ def saveData():
         "fShop":fShop,
         "xp":xp
     }
-    Json.save(data,"save.json")
+    Json.save(data,SAVE_PATH)
 
-if not pgp.pyplus.fileExists("save.json"):
-    Json.save(defaultData,"save.json")
+if not pgp.pyplus.fileExists(SAVE_PATH):
+    Json.save(defaultData,SAVE_PATH)
     newGame=1
     popup=5
 else:
