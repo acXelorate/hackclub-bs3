@@ -27,6 +27,8 @@ The game is split into multiple files with each having an obvious purpose, for e
 
 This is my first crescent hackclub hackathon game, but not my first game I ever made considering this is a remaster.
 Other games i made are usually also strategy with some exceptions.
+For some reason I made this in python pygame, but i guess i find it more fun than standard game engines, considering that I made the whole pgplus file as a game engine alternative
+I guess i like making game engines
 
 Thank you for reading my readme.md
-kbai
+kbai :)
