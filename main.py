@@ -9,7 +9,9 @@ from functions import *
 from classes import *
 from campaign import *
 
-v=0.53
+
+
+v=1.0
 defaultData["version"]=v
 
 playSong(sSong1,-1,0.2)

@@ -35,20 +35,20 @@ lCredits5=pgp.advanced.Link("Battle 2",[50,510],"pixabay.com/music/upbeat-the-br
 tOOB=font1.render("OUT OF BOUNDS",True,"white")
 rtOOB=tOOB.get_rect(centerx=cx,centery=cy)
 
-sSfx1="./ASSETS/sfx-1-click.mp3"
-sSfx2="./ASSETS/sfx-2-select.mp3"
-sSfx3="./ASSETS/sfx-3-buy.wav"
-sSfx4="./ASSETS/sfx-4-hit1.wav"
-sSfx5="./ASSETS/sfx-5-hit2.mp3"
-sSfx6="./ASSETS/sfx-6-tHit1.wav"
-sSfx7="./ASSETS/sfx-7-tHit2.wav"
+sSfx1="./ASSETS/sfx-1-click.ogg"
+sSfx2="./ASSETS/sfx-2-select.ogg"
+sSfx3="./ASSETS/sfx-3-buy.ogg"
+sSfx4="./ASSETS/sfx-4-hit1.ogg"
+sSfx5="./ASSETS/sfx-5-hit2.ogg"
+sSfx6="./ASSETS/sfx-6-tHit1.ogg"
+sSfx7="./ASSETS/sfx-7-tHit2.ogg"
 
 sfx1=pg.mixer.Sound(sSfx1)
 
 sfx3=pg.mixer.Sound(sSfx3)
 
-sSong1="./ASSETS/song1-mainMenu.mp3"
-sSong2="./ASSETS/song2-battle1.mp3"
+sSong1="./ASSETS/song1-mainMenu.ogg"
+sSong2="./ASSETS/song2-battle1.ogg"
 
 hitSfx=[sSfx4,sSfx5]
 hitSfx=[pg.mixer.Sound(i) for i in hitSfx]
